@@ -1,6 +1,8 @@
 <h1>Here are your restaurants:</h1>
 <% @restaurants.each do |restaurant| %>
-  <p><%= link_to restaurant.name, restaurant_path(restaurant.id) %></p>
+  <div class="rest-info">
+    <p><%= link_to restaurant.name, restaurant_path(restaurant.id) %></p>
+    <!-- <p>here will be the avg stars for the given restaurant</p> -->
+  </div>
 <% end %>
-
-<%= link_to "<<<Add new Restaurant>>>", new_restaurant_path, id: 'btn-add' %>
+<%= link_to "Add Restaurant", new_restaurant_path, class: 'btn btn-warning' %>

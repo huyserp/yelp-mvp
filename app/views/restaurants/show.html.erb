@@ -1,5 +1,23 @@
-<h1><%= @restaurant.name %></h1>
-<p><%= @restaurant.address %></p>
-<p><%= @restaurant.phone_number %></p>
-<p><%= @restaurant.category %></p>
-<%= link_to "back to all restaurants", restaurants_path %>
+<div class="box">
+  <div class="restaurant-content">
+    <h1><%= @restaurant.name %></h1>
+    <p><%= @restaurant.address %></p>
+    <p><%= @restaurant.phone_number %></p>
+    <p><%= @restaurant.category.capitalize %></p>
+    <%= link_to "<< Back", restaurants_path, class: 'btn btn-warning' %>
+    <%= link_to "+ Review", new_restaurant_review_path(@restaurant), class: 'btn btn-warning' %>
+  </div>
+  <div class="reviews">
+    <h3>What others think:</h3>
+    <% if !@restaurant.reviews.empty? %>
+      <% @restaurant.reviews.each do |review| %>
+        <div class="review-content">
+          <p id='rating'><%= "⭐️"*review.rating %></p>
+          <p id="review"><%= review.content %></p>
+        </div>
+      <% end %>
+    <% else %>
+      <p><em>This restaurant has not yet been reviewed...</em></p>
+    <% end %>
+  </div>
+</div>

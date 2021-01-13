@@ -13,6 +13,23 @@
 @import "pages/index";
 
 .container {
-  width: 550px;
+  width: 750px;
   margin: 0 auto;
+  padding: 32px;
+}
+
+.reviews {
+  margin-top: 32px;
+}
+
+.review-content {
+  margin-top: 16px;
+}
+
+#rating {
+  margin-bottom: 0;
+}
+
+#review {
+  margin-top: 8px;
 }
