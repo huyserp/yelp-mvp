@@ -12,10 +12,23 @@
 @import "components/index";
 @import "pages/index";
 
+h1 {
+  text-align: center;
+}
+
+.all-restaurants {
+  padding: 16px 150px;
+}
+
 .container {
   width: 750px;
   margin: 0 auto;
   padding: 32px;
+}
+
+.rest-info {
+  display: flex;
+  justify-content: space-between;
 }
 
 .reviews {

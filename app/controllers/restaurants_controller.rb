@@ -1,6 +1,13 @@
 class RestaurantsController < ApplicationController
   def index
     @restaurants = Restaurant.all
+    @ratings_by_restaurant = @restaurants.map  do |restaurant|
+      if restaurant.reviews.empty?
+        []
+      else
+        restaurant.reviews.map { |review| review.rating }
+      end
+    end
   end
 
   def new

@@ -1,8 +1,15 @@
-<h1>Here are your restaurants:</h1>
-<% @restaurants.each do |restaurant| %>
-  <div class="rest-info">
-    <p><%= link_to restaurant.name, restaurant_path(restaurant.id) %></p>
-    <!-- <p>here will be the avg stars for the given restaurant</p> -->
+<h1>Restaurants in Your Area</h1>
+  <div class="all-restaurants">
+    <% @restaurants.each_with_index do |restaurant, index| %>
+      <div class="rest-info">
+        <p><%= link_to restaurant.name, restaurant_path(restaurant.id) %></p>
+        <p>
+        <% if @ratings_by_restaurant[index].empty? %>
+         <p><em>N/A</em></p>
+         <% else %>
+        <p class="avg-rating"><%= (@ratings_by_restaurant[index].sum.to_f / @ratings_by_restaurant[index].length).round(2) %> <em>stars</em></p>
+        <% end %>
+      </div>
+    <% end %>
   </div>
-<% end %>
 <%= link_to "Add Restaurant", new_restaurant_path, class: 'btn btn-warning' %>
